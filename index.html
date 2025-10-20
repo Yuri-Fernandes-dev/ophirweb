@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -174,10 +175,86 @@
             box-shadow: 0 5px 15px rgba(56, 161, 105, 0.3);
         }
 
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: var(--white);
+            border: 2px solid #25D366;
+            padding: 12px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            border-color: #128C7E;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+        }
+
         .mobile-menu {
             display: none;
             font-size: 24px;
             cursor: pointer;
+        }
+
+        /* WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+            color: #FFF;
+        }
+
+        .whatsapp-float i {
+            font-size: 28px;
+        }
+
+        /* Price Badge */
+        .price-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--green) 0%, #2f855a 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .price-badge i {
+            margin-right: 8px;
+            font-size: 1.3rem;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* Hero Section */
@@ -297,6 +374,7 @@
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .demo-message {
@@ -396,6 +474,7 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             position: relative;
+            z-index: 10;
         }
 
         .video-wrapper {
@@ -568,142 +647,6 @@
             line-height: 1.7;
         }
 
-        /* Plans Section */
-        .plans-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            text-align: center;
-        }
-
-        .plans-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            align-items: stretch;
-            margin-top: 50px;
-        }
-
-        .plan {
-            background: #fff;
-            border-radius: 16px;
-            padding: 30px 25px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: 1px solid #e2e8f0;
-        }
-
-        .plan:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        .plan-popular {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, #ffb703, #fb8500);
-            color: #fff;
-            padding: 6px 20px;
-            font-size: 0.8rem;
-            border-radius: 30px;
-            font-weight: bold;
-            box-shadow: 0 4px 12px rgba(251, 133, 0, 0.3);
-            z-index: 2;
-        }
-
-        .plan-header {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .plan-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-
-        .plan-price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin: 10px 0 5px;
-            line-height: 1;
-        }
-
-        .plan-period {
-            font-size: 0.95rem;
-            color: #718096;
-            font-weight: 500;
-        }
-
-        .plan-features {
-            text-align: left;
-            font-size: 0.9rem;
-            color: #4a5568;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .plan-feature {
-            margin: 12px 0;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.4;
-        }
-
-        .feature-check {
-            color: #38a169;
-            margin-right: 12px;
-            font-weight: bold;
-            font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .feature-cross {
-            color: #e53e3e;
-            margin-right: 12px;
-            font-weight: bold;
-            font-size: 1rem;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .plan-button {
-            text-align: center;
-            margin-top: auto;
-        }
-
-        .plan-entrada {
-            border-top: 4px solid var(--primary);
-        }
-
-        .plan-bronze {
-            border-top: 4px solid #5a6268;
-        }
-
-        .plan-ouro {
-            border-top: 4px solid #ffc107;
-            transform: scale(1.05);
-            z-index: 2;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-        }
-
-        .plan-ouro:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .plan-diamante {
-            border-top: 4px solid var(--secondary);
-        }
-
         /* Footer */
         footer {
             background: var(--gradient);
@@ -834,21 +777,6 @@
         }
 
         /* Responsividade */
-        @media (max-width: 1200px) {
-            .plans-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-            
-            .plan-ouro {
-                transform: scale(1);
-            }
-            
-            .plan-ouro:hover {
-                transform: translateY(-10px);
-            }
-        }
-
         @media (max-width: 992px) {
             .hero-container {
                 flex-direction: column;
@@ -916,13 +844,6 @@
         }
 
         @media (max-width: 768px) {
-            .plans-container {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -944,11 +865,26 @@
             }
             
             .video-container {
-                margin: 0 15px;
+                margin: 0 10px;
+            }
+
+            .video-wrapper {
+                min-height: 200px;
             }
 
             .persuasive-content .section-title h2 {
                 font-size: 2.2rem;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float i {
+                font-size: 24px;
             }
         }
 
@@ -974,16 +910,13 @@
                 font-size: 1.8rem;
             }
 
-            .plan {
-                padding: 25px 20px;
+            .video-container {
+                margin: 0 5px;
+                border-radius: 10px;
             }
 
-            .plan-price {
-                font-size: 2.2rem;
-            }
-            
-            .video-container {
-                border-radius: 10px;
+            .video-wrapper {
+                min-height: 150px;
             }
 
             .slider-container {
@@ -1008,6 +941,11 @@
             .demo-message {
                 font-size: 1rem;
                 padding: 12px 15px;
+            }
+
+            .price-badge {
+                font-size: 1rem;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -1035,17 +973,38 @@
         </div>
     </header>
 
+    <!-- MENU MOBILE -->
+    <nav class="mobile-nav">
+        <a href="#features">Recursos</a>
+        <a href="https://sistemaophir.shop/planos">Planos</a>
+        <a href="#about">Sobre</a>
+        <a href="#contact">Contato</a>
+        <div class="header-buttons">
+           
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-container">
             <div class="hero-content">
-                <h1>Sistema de Gestão Completo por <span class="highlight">menos de R$ 15/mês</span></h1>
-                <p>Fácil de usar e comprovadamente aumenta as vendas em <span class="highlight">até 46%</span>. Tudo que sua empresa precisa em um só lugar.</p>
-                <div class="hero-buttons">
-                    <a href="#plans" class="btn btn-primary">Começar Agora</a>
-                    <a href="#video" class="btn btn-outline">Ver Demonstração</a>
+                <!-- PRICE BADGE AQUI EM CIMA -->
+                <div class="price-badge">
+                    <i class="fas fa-tag"></i>
+                    <strong>MENOS DE R$ 15 MENSAL</strong>
                 </div>
                 
+                <h1>Sistema de Gestão Completo por <span class="highlight">menos de R$ 15/mês</span></h1>
+                <p>Fácil de usar e comprovadamente aumenta as vendas em <span class="highlight">até 46%</span>. Tudo que sua empresa precisa em um só lugar.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#video" class="btn btn-outline">Ver Demonstração</a>
+                    <!-- BOTÃO ADQUIRIR AGORA -->
+                    <a href="https://wa.me/5521988037318?text=Olá!%20Quero%20ADQUIRIR%20o%20Ophir%20Gestão%20AGORA!%20Qual%20plano%20recomenda?" 
+                       target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> ADQUIRIR AGORA
+                    </a>
+                </div>
             </div>
             <div class="hero-image">
                 <div class="slider-container">
@@ -1100,13 +1059,12 @@
             <div class="video-container">
                 <div class="video-wrapper">
                     <iframe 
-    src="https://www.youtube.com/embed/s9Ns7t84LLc" 
-    title="SnapDev PDV - Demonstração" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
-
+                        src="https://www.youtube.com/embed/s9Ns7t84LLc?playsinline=1" 
+                        title="SnapDev PDV - Demonstração" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                     <div class="video-fallback">
                         <div class="fallback-content">
                             <i class="fas fa-play-circle"></i>
@@ -1119,12 +1077,12 @@
                     </div>
                 </div>
                 <div class="video-buttons">
-                    <a href="https://wa.me/5521988037318?text=Olá!%20Tenho%20interesse%20no%20sistema%20e%20gostaria%20de%20solicitar%20uma%20demonstração%20gratuita." 
-                       target="_blank" class="btn btn-green">
-                        Falar com o Suporte
+                    <!-- BOTÃO ADQUIRIR AGORA AQUI TAMBÉM -->
+                    <a href="https://wa.me/5521988037318?text=Olá!%20Vi%20o%20vídeo%20e%20quero%20ADQUIRIR%20o%20Ophir%20Gestão%20AGORA!" 
+                       target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> ADQUIRIR AGORA
                     </a>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -1152,7 +1110,6 @@
                     <p>Descubra como nossa plataforma pode transformar a gestão do seu negócio com soluções práticas e eficazes.</p>
                 </div>
                 <p>Mais de 2.500 empresas confiam no Ophir Gestão e alcançaram um aumento médio de <span class="highlight">46% nas vendas</span> no primeiro trimestre de uso.</p>
-                
                 <div class="benefits">
                     <div class="benefit">
                         <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
@@ -1173,132 +1130,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Plans Section 
-    <section class="plans-section" id="plans">
-        <div class="container">
-            <div class="section-title">
-                <h2>Escolha o Plano Ideal para Sua Empresa</h2>
-                <p>Todos os planos incluem funcionalidades essenciais para gerenciar seu negócio com eficiência.</p>
-            </div>
-            <div class="plans-container">
-                <!-- Plano Entrada 
-                <div class="plan plan-entrada">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Entrada</h3>
-                        <div class="plan-price">R$ 14,79</div>
-                        <div class="plan-period">/mês</div>
-                    </div>
-                    <div class="plan-features">
-                        <div class="plan-feature"><span class="feature-check">✓</span> Vendas, Estoque e Produtos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Abertura de Chamados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Contas à Pagar e Receber</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de RH</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API do WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> APIs de Pagamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Painel do Cliente</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Assinatura Digital</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Limite de 1 Usuário</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> 1 Dispositivo WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Site</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> <strong>ATENÇÃO: VÁLIDO POR UM MÊS (NO PRÓXIMO MÊS O PLANO MUDA PARA O BRONZE)</strong></div>
-                    </div>
-                    <div class="plan-button">
-                        <a href="https://sistemaophir.shop/assinar.php" class="btn btn-primary">Assinar Agora</a>
-                    </div>
-                </div>
-
-                Plano Bronze -
-                <div class="plan plan-bronze">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Bronze</h3>
-                        <div class="plan-price">R$ 99,89</div>
-                        <div class="plan-period">/mês</div>
-                    </div>
-                    <div class="plan-features">
-                        <div class="plan-feature"><span class="feature-check">✓</span> Vendas, Estoque e Produtos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Abertura de Chamados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Contas à Pagar e Receber</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de RH</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API do WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API de Pagamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Painel do Cliente</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Assinatura Digital</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Cobranças Recorrentes</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Limite de 3 Clientes</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Limite de 3 Usuários</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> 2 Dispositivos WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Site</div>
-                    </div>
-                    <div class="plan-button">
-                        <a href="https://sistemaophir.shop/assinar.php" class="btn btn-primary">Assinar Agora</a>
-                    </div>
-                </div>-->
-
-                <!-- Plano Ouro
-                <div class="plan plan-ouro">
-                    <div class="plan-popular">Mais Popular</div>
-                    <div class="plan-header">
-                        <h3 class="plan-name">Ouro</h3>
-                        <div class="plan-price">R$ 160,00</div>
-                        <div class="plan-period">/mês</div>
-                    </div>
-                    <div class="plan-features">
-                        <div class="plan-feature"><span class="feature-check">✓</span> Vendas, Estoque e Produtos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Abertura de Chamados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Vídeo Tutoriais</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Contas à Pagar e Receber</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de RH</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API do WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API de Pagamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Painel do Cliente</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Assinatura Digital</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Cobranças Recorrentes</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de Contratos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Orçamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Limite de 7 Usuários</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> 5 Dispositivos WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Site</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> <strong> (AUMENTE AS VENDAS EM 63%)</strong></div>
-                    </div>
-                    <div class="plan-button">
-                        <a href="https://sistemaophir.shop/assinar.php" class="btn btn-secondary">Assinar Agora</a>
-                    </div>
-                </div>
-
-                <!Plano Diamante 
-                <div class="plan plan-diamante">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Diamante</h3>
-                        <div class="plan-price">R$ 180,00</div>
-                        <div class="plan-period">/mês</div>
-                    </div>
-                    <div class="plan-features">
-                        <div class="plan-feature"><span class="feature-check">✓</span> Vendas, Estoque e Produtos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Abertura de Chamados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Contas à Pagar e Receber</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de RH</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API do WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> API de Pagamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Painel do Cliente</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Assinatura Digital</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Cobranças Recorrentes</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Gestão de Contratos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Orçamentos</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Ordem de Serviços</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Clientes Ilimitados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Usuários Ilimitados</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> 10 Dispositivos WhatsApp</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span> Site</div>
-                        <div class="plan-feature"><span class="feature-check">✓</span><strong> Marketing (AUMENTE AS VENDAS EM 63%)</strong></div>
-                    </div>
-                    <div class="plan-button">
-                        <a href="https://sistemaophir.shop/assinar.php" class="btn btn-primary">Assinar Agora</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Footer -->
     <footer id="contact">
@@ -1335,7 +1166,6 @@
                 <h3>Contato</h3>
                 <ul>
                     <li><i class="fas fa-envelope"></i> contato@ophirgestao.com</li>
-                    
                     <li><i class="fab fa-whatsapp"></i> (21) 988037318</li>
                     <li><i class="fas fa-map-marker-alt"></i> Rio de Janeiro, Nova Iguaçu</li>
                 </ul>
@@ -1345,6 +1175,12 @@
             <p>&copy; 2025 Ophir Gestão. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/5521988037318?text=Olá!%20Tenho%20interesse%20no%20Ophir%20Gestão!" 
+       class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // Menu Mobile
@@ -1370,7 +1206,6 @@
 
         function updateSlider() {
             slider.style.transform = `translateX(-${currentSlide * 25}%)`;
-            
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', index === currentSlide);
             });
@@ -1435,7 +1270,7 @@
                 videoIframe.onload = function() {
                     setTimeout(function() {
                         try {
-                            if (videoIframe.offsetHeight < 200) {
+                            if (!videoIframe.contentWindow || videoIframe.offsetHeight === 0) {
                                 videoFallback.classList.add('active');
                             }
                         } catch (e) {
