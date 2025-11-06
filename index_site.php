@@ -1,4 +1,5 @@
 
+<?php $BASE_URL = '.'; ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +15,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+       
         :root {
             --primary: #0a55a4;
             --secondary: #f7953c;
@@ -116,6 +117,9 @@
         .header-buttons {
             display: flex;
             gap: 15px;
+        }
+        #verde{
+            color: green;
         }
 
         .btn {
@@ -943,11 +947,45 @@
                 padding: 12px 15px;
             }
 
-            .price-badge {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
         }
+
+        .price-badge {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+        /* Plans */
+        .plans-section { background: var(--light-bg); padding: 80px 0; }
+        .plans-section .container { max-width: 1800px; }
+        .plans-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:28px; align-items: stretch; justify-items: stretch; }
+        .plan-card { position:relative; background:#fff; border:2px solid #cbd5e1; border-radius:14px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); padding:24px; display:flex; flex-direction:column; gap:12px; min-height: 420px; height:100%; }
+        .plan-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); border-color:#d1d5db; }
+        .plan-header { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:10px; }
+        .plan-header .icon { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+        .plan-card h3 { margin:0; color:#111827; font-weight:800; font-size:1.4rem; }
+        .ribbon { position:absolute; top:14px; right:14px; background: var(--secondary); color:#fff; font-size:.75rem; padding:6px 10px; border-radius:999px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+        .plan-price { font-size: 1.4rem; color:#111827; display:flex; align-items:baseline; gap:8px; }
+        .plan-price .amount { font-size:2rem; font-weight:800; }
+        .plan-note { font-size:.85rem; color:#6b7280; }
+        .plan-features { list-style:none; padding:0; margin:8px 0 0; display:flex; flex-direction:column; gap:8px; color:#374151; }
+        .plan-features li { display:flex; align-items:flex-start; gap:10px; line-height:1.4; }
+        .plan-features li i { color: #10b981; margin-top:2px; }
+        .plan-cta { margin-top:auto; width:100%; text-align:center; }
+        .plan-cta .btn { width:100%; padding:12px 16px; font-weight:700; border-radius:10px; }
+        .plan-entrada { border-top:4px solid #3b82f6; }
+        .plan-bronze { border-top:4px solid #cd7f32; }
+        .plan-ouro { border-top:4px solid #f59e0b; }
+        .plan-diamante { border-top:4px solid #06b6d4; }
+        .plan-entrada .plan-header { background: rgba(59,130,246,0.10); }
+        .plan-bronze .plan-header { background: rgba(205,127,50,0.12); }
+        .plan-ouro .plan-header { background: rgba(245,158,11,0.12); }
+        .plan-diamante .plan-header { background: rgba(6,182,212,0.12); }
+        .plan-entrada .plan-header .icon { background: rgba(59,130,246,0.20); color:#1d4ed8; }
+        .plan-bronze .plan-header .icon { background: rgba(205,127,50,0.20); color:#a05a1e; }
+        .plan-ouro .plan-header .icon { background: rgba(245,158,11,0.20); color:#b45309; }
+        .plan-diamante .plan-header .icon { background: rgba(6,182,212,0.20); color:#0e7490; }
+        @media (max-width: 1300px) { .plans-grid { grid-template-columns: repeat(3, minmax(280px, 1fr)); } }
+        @media (max-width: 960px) { .plans-grid { grid-template-columns: repeat(2, minmax(260px, 1fr)); } }
+        @media (max-width: 600px) { .plans-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -955,11 +993,11 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="/logo.png" alt="Ophir Gestão Logo" width="190px">
+                <img src="<?php echo $BASE_URL; ?>/logo.png" alt="Ophir Gestão Logo" width="190px">
             </div>
             <nav class="nav-links">
                 <a href="#features">Recursos</a>
-                <a href="https://sistemaophir.shop/planos">Planos</a>
+                <a href="#plans">Planos</a>
                 <a href="#about">Sobre</a>
                 <a href="#contact">Contato</a>
             </nav>
@@ -991,14 +1029,15 @@
                 <!-- PRICE BADGE AQUI EM CIMA -->
                 <div class="price-badge">
                     <i class="fas fa-tag"></i>
-                    <strong>MENOS DE R$ 15 MENSAL</strong>
+                    <strong>R$ 15 no primeiro mês</strong>
                 </div>
                 
-                <h1>Sistema de Gestão Completo por <span class="highlight">menos de R$ 15/mês</span></h1>
-                <p>Fácil de usar e comprovadamente aumenta as vendas em <span class="highlight">até 46%</span>. Tudo que sua empresa precisa em um só lugar.</p>
+                <h1>Gestão que gera resultado, começando por <span class="highlight">R$ 15 no primeiro mês</span></h1>
+                <p> Gerencie estoque, vendas, financeiro, Mensagem em massa <strong id="verde">ZAP</strong> e atendimento — tudo pelo mesmo painel.
+                    Menos bagunça, mais resultado.</p>
                 
                 <div class="hero-buttons">
-                    <a href="#video" class="btn btn-outline">Ver Demonstração</a>
+                    <a href="#video" class="btn btn-outline">Ver Vídeo</a>
                     <!-- BOTÃO ADQUIRIR AGORA -->
                     <a href="https://wa.me/5521988037318?text=Olá!%20Quero%20ADQUIRIR%20o%20Ophir%20Gestão%20AGORA!%20Qual%20plano%20recomenda?" 
                        target="_blank" class="btn btn-whatsapp">
@@ -1009,10 +1048,10 @@
             <div class="hero-image">
                 <div class="slider-container">
                     <div class="slider">
-                        <div class="slide"><img src="1.png" alt="Slide 1"></div>
-                        <div class="slide"><img src="2.png" alt="Slide 2"></div>
-                        <div class="slide"><img src="3.png" alt="Slide 3"></div>
-                        <div class="slide"><img src="4.png" alt="Slide 4"></div>
+            <div class="slide"><img src="<?php echo $BASE_URL; ?>/1.png" alt="Slide 1"></div>
+            <div class="slide"><img src="<?php echo $BASE_URL; ?>/2.png" alt="Slide 2"></div>
+            <div class="slide"><img src="<?php echo $BASE_URL; ?>/3.png" alt="Slide 3"></div>
+            <div class="slide"><img src="<?php echo $BASE_URL; ?>/4.png" alt="Slide 4"></div>
                     </div>
                     <div class="slider-controls">
                         <div class="slider-dot active"></div>
@@ -1059,7 +1098,7 @@
             <div class="video-container">
                 <div class="video-wrapper">
                     <iframe 
-                        src="https://www.youtube.com/embed/s9Ns7t84LLc?playsinline=1" 
+                        src="https://www.youtube.com/embed/THd7v6RBT64?start=13" 
                         title="SnapDev PDV - Demonstração" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -1101,30 +1140,164 @@
         </div>
     </section>
 
-    <!-- Persuasive Section -->
+    <!-- ERP Section -->
     <section class="persuasive-section" id="features">
         <div class="container">
             <div class="persuasive-content">
                 <div class="section-title">
-                    <h2>Por que Escolher o Ophir Gestão?</h2>
-                    <p>Descubra como nossa plataforma pode transformar a gestão do seu negócio com soluções práticas e eficazes.</p>
+                    <h2>ERP completo para lojas</h2>
+                    <p>Ophir Gestão foi desenvolvido para lojas de suplementos, moda, beleza e varejo. Centralize vendas, PDV, estoque, financeiro e atendimento em uma única plataforma.</p>
                 </div>
-                <p>Mais de 2.500 empresas confiam no Ophir Gestão e alcançaram um aumento médio de <span class="highlight">46% nas vendas</span> no primeiro trimestre de uso.</p>
                 <div class="benefits">
                     <div class="benefit">
-                        <div class="benefit-icon"><i class="fas fa-rocket"></i></div>
-                        <h3>Fácil de Usar</h3>
-                        <p>Interface intuitiva que permite a qualquer pessoa dominar a plataforma em poucos minutos, sem complicações.</p>
+                        <div class="benefit-icon"><i class="fas fa-box-open"></i></div>
+                        <h3>Estoque e Produtos</h3>
+                        <p>Controle em tempo real, variações por tamanho/cor, códigos de barras, inventário e integração com fornecedores.</p>
                     </div>
                     <div class="benefit">
-                        <div class="benefit-icon"><i class="fas fa-piggy-bank"></i></div>
-                        <h3>Economia de Tempo e Dinheiro</h3>
-                        <p>Automatize processos manuais e concentre seus esforços no crescimento do seu negócio.</p>
+                        <div class="benefit-icon"><i class="fas fa-cash-register"></i></div>
+                        <h3>PDV e Vendas Omnichannel</h3>
+                        <p>PDV rápido e responsivo, vendas na loja física ou online, gestão de promoções, cupons e integração com gateways de pagamento.</p>
                     </div>
                     <div class="benefit">
-                        <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Aumente Suas Vendas</h3>
-                        <p>Ferramentas de marketing integradas que impulsionam suas conversões e maximizam resultados.</p>
+                        <div class="benefit-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3>Financeiro e Cobranças</h3>
+                        <p>Contas a pagar e receber, conciliação financeira, cobranças recorrentes e emissão de notas e boletos para gestão completa do caixa.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Plans Section -->
+    <section class="plans-section" id="plans">
+        <div class="container">
+            <div class="section-title">
+                <h2>Planos</h2>
+                <p>Escolha o plano ideal para o seu negócio. Comece hoje mesmo e fale conosco pelo WhatsApp.</p>
+            </div>
+            <div class="plans-grid">
+                <!-- Plano Entrada -->
+                <div class="plan-card plan-entrada">
+                    <div class="plan-header">
+                        <div class="icon"><i class="fas fa-seedling"></i></div>
+                        <div>
+                            <h3>Plano Entrada</h3>
+                            <div class="plan-note">ATENÇÃO: válido por um mês. Posteriormente o plano muda para o Bronze.</div>
+                        </div>
+                    </div>
+                    <div class="plan-price"> <span class="amount">R$ 14,79</span><span class="plan-note">/ mês</span></div>
+                    <ul class="plan-features">
+                        <li>Vendas, Estoque e Produtos</li>
+                        <li>Abertura de Chamados</li>
+                        <li>Contas à Pagar e Receber</li>
+                        <li>Gestão de RH</li>
+                        <li>API do WhatsApp</li>
+                        <li>APIs de Pagamentos</li>
+                        <li>Painel do Cliente</li>
+                        <li>Assinatura Digital</li>
+                        <li>Limite de 1 Usuário</li>
+                        <li>1 Dispositivo WhatsApp</li>
+                        <li>Site</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/5521988037318?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Entrada%20(R$%2014,79%2Fm%C3%AAs).%20Como%20proceder%3F">Assinar Agora</a>
+                    </div>
+                </div>
+
+                <!-- Plano Bronze -->
+                <div class="plan-card plan-bronze">
+                    <div class="ribbon">Popular</div>
+                    <div class="plan-header">
+                        <div class="icon"><i class="fas fa-medal"></i></div>
+                        <div>
+                            <h3>Plano Bronze</h3>
+                        </div>
+                    </div>
+                    <div class="plan-price"> <span class="amount">R$ 99,89</span><span class="plan-note">/ mês</span></div>
+                    <ul class="plan-features">
+                        <li>Vendas, Estoque e Produtos</li>
+                        <li>Abertura de Chamados</li>
+                        <li>Contas à Pagar e Receber</li>
+                        <li>Gestão de RH</li>
+                        <li>API do WhatsApp</li>
+                        <li>API de Pagamentos</li>
+                        <li>Painel do Cliente</li>
+                        <li>Assinatura Digital</li>
+                        <li>Cobranças Recorrentes</li>
+                        <li>Limite de 3 Usuários</li>
+                        <li>2 Dispositivos WhatsApp</li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/5521988037318?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Bronze%20(R$%2099,89%2Fm%C3%AAs).%20Como%20proceder%3F">Assinar Agora</a>
+                    </div>
+                </div>
+
+                <!-- Plano Ouro -->
+                <div class="plan-card plan-ouro">
+                    <div class="plan-header">
+                        <div class="icon"><i class="fas fa-crown"></i></div>
+                        <div>
+                            <h3>Plano Ouro</h3>
+                        </div>
+                    </div>
+                    <div class="plan-price"> <span class="amount">R$ 160,00</span><span class="plan-note">/ mês</span></div>
+                    <ul class="plan-features">
+                        <li>Vendas, Estoque e Produtos</li>
+                        <li>Abertura de Chamados</li>
+                        <li>Vídeo Tutoriais</li>
+                        <li>Contas à Pagar e Receber</li>
+                        <li>Gestão de RH</li>
+                        <li>API do WhatsApp</li>
+                        <li>API de Pagamentos</li>
+                        <li>Painel do Cliente</li>
+                        <li>Assinatura Digital</li>
+                        <li>Cobranças Recorrentes</li>
+                        <li>Gestão de Contratos</li>
+                        <li>Orçamentos</li>
+                        <li>Limite de 7 Usuários</li>
+                        <li>5 Dispositivos WhatsApp</li>
+                        <li>Site</li>
+                        <li><strong id="verde">Marketing (Aumente as vendas em 63%)</strong></li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/5521988037318?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Ouro%20(R$%20160,00%2Fm%C3%AAs).%20Como%20proceder%3F">Assinar Agora</a>
+                    </div>
+                </div>
+
+                <!-- Plano Diamante -->
+                <div class="plan-card plan-diamante">
+                    <div class="plan-header">
+                        <div class="icon"><i class="fas fa-gem"></i></div>
+                        <div>
+                            <h3>Plano Diamante</h3>
+                        </div>
+                    </div>
+                    <div class="plan-price"> <span class="amount">R$ 220,00</span><span class="plan-note">/ mês</span></div>
+                    <ul class="plan-features">
+                        <li>Vendas, Estoque e Produtos</li>
+                        <li>Abertura de Chamados</li>
+                        <li>Contas à Pagar e Receber</li>
+                        <li>Gestão de RH</li>
+                        <li>API do WhatsApp</li>
+                        <li>API de Pagamentos</li>
+                        <li>Painel do Cliente</li>
+                        <li>Assinatura Digital</li>
+                        <li>Cobranças Recorrentes</li>
+                        <li>Gestão de Contratos</li>
+                        <li>Orçamentos</li>
+                        <li>Ordem de Serviços</li>
+                        <li>Clientes Ilimitados</li>
+                        <li>Usuários Ilimitados</li>
+                        <li>10 Dispositivos WhatsApp</li>
+                        <li>Site</li>
+                        <li><strong id="verde">Marketing (Aumente as vendas em 63%)</strong></li>
+                    </ul>
+                    <div class="plan-cta">
+                        <a class="btn btn-whatsapp" target="_blank" href="https://wa.me/5521988037318?text=Ol%C3%A1!%20Quero%20assinar%20o%20Plano%20Diamante%20(R$%20220,00%2Fm%C3%AAs).%20Como%20proceder%3F">Assinar Agora</a>
                     </div>
                 </div>
             </div>
@@ -1342,5 +1515,77 @@
             }
         });
     </script>
-</body>
+
+    <!-- Modal de Lead (aparece após 6 segundos) -->
+    <style>
+      .lead-modal-overlay { position: fixed; inset: 0; background: rgba(17,24,39,.5); display: none; align-items: center; justify-content: center; z-index: 2000; }
+      .lead-modal-overlay.open { display: flex; }
+      .lead-modal { background: #ffffff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.15); width: 90%; max-width: 520px; padding: 20px; border: 1px solid #e5e7eb; }
+      body.modal-open { overflow: hidden; }
+      .lead-modal header { display:flex; justify-content:space-between; align-items:center; margin-bottom: 12px; }
+      .lead-modal header h3 { margin:0; color: var(--primary); }
+      .lead-modal .close { background:none; border:none; font-size:22px; cursor:pointer; color:#6b7280; }
+      .lead-modal .row { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+      .lead-modal label { font-size:14px; color:#6b7280; }
+      .lead-modal input { width:100%; padding:12px; border:1px solid #e5e7eb; border-radius:8px; font-size:14px; }
+      .lead-modal select { width:100%; padding:12px 36px 12px 12px; border:1px solid #e5e7eb; border-radius:8px; font-size:14px; background:#ffffff; appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 12px center; background-size:16px; }
+      .lead-modal input:focus, .lead-modal select:focus { outline:none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(10,85,164,0.15); }
+      .lead-modal select:hover { border-color:#d1d5db; }
+      .lead-modal .actions { display:flex; gap:8px; margin-top:8px; }
+      .lead-modal .actions .btn { padding:10px 14px; }
+      @media (max-width: 480px) { .lead-modal { width:96%; padding:16px; } }
+    </style>
+    <div class="lead-modal-overlay" id="leadModal">
+      <div class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+        <header>
+          <h3 id="leadModalTitle">Fale com a Ophir Gestão</h3>
+        </header>
+        <form method="post" action="api/create_lead.php">
+          <input type="hidden" name="public" value="1" />
+          <input type="hidden" name="redirect" value="" id="leadRedirect" />
+          <div class="row"><label>Nome</label><input type="text" name="name" required /></div>
+          <div class="row"><label>Email</label><input type="email" name="email" required /></div>
+          <div class="row"><label>Telefone</label><input type="text" name="phone" required inputmode="tel" /></div>
+          <div class="row"><label>Empresa</label><input type="text" name="company" /></div>
+          <div class="row"><label>Como nos conheceu?</label>
+            <select name="source" required>
+              <option value="" disabled selected>Selecione uma opção</option>
+              <option value="Youtube">Youtube</option>
+              <option value="Tiktok">Tiktok</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Google">Google</option>
+            </select>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" type="submit">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      (function(){
+        const overlay = document.getElementById('leadModal');
+        if (!overlay) return;
+        const openModal = () => { overlay.classList.add('open'); document.body.classList.add('modal-open'); };
+        const params = new URLSearchParams(window.location.search);
+        const submitted = params.get('success') === '1';
+        if (!submitted) {
+          setTimeout(openModal, 8000);
+        }
+        // Define redirect dinâmico para a mesma página, qualquer que seja o caminho (ex.: /crm/index_site.php)
+        const redirectInput = document.getElementById('leadRedirect');
+        if (redirectInput) {
+          const url = new URL(window.location.href);
+          redirectInput.value = url.pathname + '?success=1';
+        }
+        // Modal obrigatório: remover fechamentos por clique fora e ESC
+        overlay.addEventListener('click', (e)=>{
+          // não fecha ao clicar fora; impede interação no fundo
+          if (e.target === overlay) { e.stopPropagation(); }
+        });
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') { e.preventDefault(); } });
+      })();
+    </script>
+  </body>
 </html>

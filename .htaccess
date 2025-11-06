@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redireciona /login para login.php
+RewriteRule ^login$ login.php [L,QSA]
+
+# Não interferir com arquivos ou diretórios existentes
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
